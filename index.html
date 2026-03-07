@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leatherette Book & Bible Cover Collection</title>
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #7c5c3b;
+      --accent-soft: #efe3d4;
+      --shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+      --radius: 20px;
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #fff9f2 0%, var(--bg) 45%),
+        linear-gradient(180deg, #faf7f1 0%, #f3efe8 100%);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 56px 0 30px;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.05;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    .summary {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .pill {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      box-shadow: 0 4px 14px rgba(17,24,39,0.04);
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin: 10px 0 20px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+      padding-bottom: 56px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(17, 24, 39, 0.12);
+    }
+
+    .card-media {
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(180deg, #f9fafb 0%, #f3f4f6 100%);
+      padding: 16px;
+      display: grid;
+      place-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,0.08));
+    }
+
+    .card-body {
+      padding: 18px 18px 20px;
+    }
+
+    .sku {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      line-height: 1.4;
+    }
+
+    .meta {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.45;
+    }
+
+    .meta strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(229, 231, 235, 0.9);
+      padding: 20px 0 40px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding-top: 26px; }
+      .hero-card { padding: 24px; border-radius: 22px; }
+      .section-title { align-items: start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <div class="eyebrow">10 Product Collection</div>
+        <h1>Leatherette Book &amp; Bible Covers</h1>
+        <p>
+          A quick showcase page for 7 1/2&quot; x 10 3/4&quot; leatherette book and Bible covers with handle and zipper.
+          This version highlights the full uploaded set with clean product cards and ready-to-share visuals.
+        </p>
+        <div class="summary">
+          <div class="pill">Size: 7 1/2&quot; x 10 3/4&quot;</div>
+          <div class="pill">Style: Handle &amp; Zipper</div>
+          <div class="pill">Material: Leatherette</div>
+          <div class="pill">Total Products: 10</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="section-title">
+      <h2>Available Colors &amp; Finishes</h2>
+      <p>Responsive grid layout for desktop, tablet, and mobile.</p>
+    </div>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT300.png" alt="Pink Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT300</div>
+          <h3>Pink Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Pink</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT414.jpg" alt="Gray Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT414</div>
+          <h3>Gray Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Gray</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT298.png" alt="Rawhide Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT298</div>
+          <h3>Rawhide Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Rawhide</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT302.png" alt="Teal Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT302</div>
+          <h3>Teal Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Teal</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT926.png" alt="White Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT926</div>
+          <h3>White Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> White</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT297A.jpg" alt="Black Gold Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT297A</div>
+          <h3>Black/Gold Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Black/Gold</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT296.jpg" alt="Dark Brown Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT296</div>
+          <h3>Dark Brown Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Dark Brown</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT301.jpg" alt="Black Silver Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT301</div>
+          <h3>Black/Silver Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Black/Silver</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT723.jpg" alt="Rustic Gold Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT723</div>
+          <h3>Rustic/Gold Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Rustic/Gold</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT303.png" alt="Blue Silver Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT303</div>
+          <h3>Blue/Silver Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Blue/Silver</div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">Built from your uploaded product images and SKU list.</div>
+  </footer>
+</body>
+</html>
