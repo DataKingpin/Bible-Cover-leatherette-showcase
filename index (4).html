@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paul &amp; Roy's Men's Group | Bible Cover Options</title>
+  <style>
+    :root {
+      --bg: #040607;
+      --bg-soft: #0b1014;
+      --card: #0b1116;
+      --card-2: #111920;
+      --text: #f6f8fb;
+      --muted: #b3bec8;
+      --line: rgba(255,255,255,0.08);
+      --accent: #25b7d6;
+      --accent-soft: rgba(37,183,214,0.14);
+      --shadow: 0 20px 50px rgba(0,0,0,0.42);
+      --max: 1240px;
+      --radius: 26px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(37,183,214,0.14), transparent 26%),
+        radial-gradient(circle at bottom right, rgba(37,183,214,0.10), transparent 24%),
+        linear-gradient(180deg, #040607 0%, #081016 52%, #040607 100%);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .site-top {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(4, 6, 7, 0.78);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .site-top .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(37,183,214,0.14);
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      font-size: 0.96rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .top-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: end;
+    }
+
+    .top-link {
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .top-link.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #001118;
+      font-weight: 800;
+    }
+
+    .hero {
+      padding: 42px 0 22px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(37,183,214,0.18), transparent 18%),
+        radial-gradient(circle at 88% 18%, rgba(37,183,214,0.10), transparent 18%),
+        linear-gradient(140deg, rgba(11,17,22,0.96), rgba(7,11,14,0.98));
+      border: 1px solid rgba(37,183,214,0.16);
+      border-radius: 32px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      bottom: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(37,183,214,0.22), rgba(37,183,214,0.04) 42%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.3rem, 5vw, 4.4rem);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+    }
+
+    .accent { color: var(--accent); }
+
+    .lead {
+      margin: 0;
+      max-width: 860px;
+      color: var(--muted);
+      font-size: 1.04rem;
+      line-height: 1.75;
+    }
+
+    .summary {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.92rem;
+      color: #d6e0e6;
+    }
+
+    .note {
+      margin-top: 18px;
+      max-width: 820px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      color: #dbe5eb;
+      line-height: 1.65;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin: 10px 0 22px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 6px;
+      font-size: 1.7rem;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 760px;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 22px;
+      padding-bottom: 54px;
+    }
+
+    .card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(11,17,22,0.96), rgba(7,11,14,0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(37,183,214,0.30);
+      box-shadow: 0 26px 58px rgba(0,0,0,0.45);
+    }
+
+    .card-media {
+      aspect-ratio: 1 / 1;
+      background:
+        radial-gradient(circle at top, rgba(37,183,214,0.10), transparent 44%),
+        linear-gradient(180deg, #091015 0%, #05090d 100%);
+      padding: 18px;
+      display: grid;
+      place-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 26px rgba(0,0,0,0.42));
+    }
+
+    .card-body {
+      padding: 18px 18px 20px;
+    }
+
+    .sku {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      line-height: 1.42;
+      color: #f6fbfd;
+    }
+
+    .meta {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.48;
+    }
+
+    .meta strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 20px 0 44px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .footer strong { color: var(--text); }
+
+    @media (max-width: 700px) {
+      .site-top .wrap,
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .top-links { justify-content: start; }
+
+      .hero-card {
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      h1 { font-size: 2.45rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-top">
+    <div class="wrap">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div class="brand-text">Paul &amp; Roy's Men's Group</div>
+      </div>
+      <div class="top-links">
+        <a class="top-link" href="#collection">Browse Covers</a>
+        <a class="top-link primary" href="#collection">View All 10</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <div class="eyebrow">Led by Paul &amp; Roy</div>
+        <h1>
+          <span>Bible Cover</span><br />
+          <span class="accent">Options</span>
+        </h1>
+        <p class="lead">
+          If you're interested, here are the Bible cover options I found from the wholesaler I bought mine from.
+          These are all 7 1/2&quot; x 10 3/4&quot; leatherette book/Bible covers with a handle and zipper.
+        </p>
+        <div class="summary">
+          <div class="pill">10 cover options</div>
+          <div class="pill">Black, white &amp; blue theme</div>
+          <div class="pill">Sized for 7 1/2&quot; x 10 3/4&quot; covers</div>
+        </div>
+        <div class="note">
+          I'm sure there are plenty of other e-commerce sites out there too, but these are the ones I found from the wholesaler source I used.
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="collection">
+    <div class="section-head">
+      <div>
+        <h2>Available Styles</h2>
+        <p>Below are the color options I found from that source. Images are shown on a dark background for easier side-by-side comparison.</p>
+      </div>
+      <p>Scroll through and see which one stands out to you.</p>
+    </div>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT300.png" alt="Pink Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT300</div>
+          <h3>Pink Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Pink</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT414.png" alt="Gray Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT414</div>
+          <h3>Gray Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Gray</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT298.png" alt="Rawhide Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT298</div>
+          <h3>Rawhide Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Rawhide</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT302.png" alt="Teal Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT302</div>
+          <h3>Teal Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Teal</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT926.png" alt="White Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT926</div>
+          <h3>White Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> White</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT297A.png" alt="Black Gold Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT297A</div>
+          <h3>Black/Gold Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Black/Gold</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT296.png" alt="Dark Brown Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT296</div>
+          <h3>Dark Brown Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Dark Brown</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT301.png" alt="Black Silver Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT301</div>
+          <h3>Black/Silver Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Black/Silver</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT723.png" alt="Rustic Gold Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT723</div>
+          <h3>Rustic/Gold Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Rustic/Gold</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><img src="assets/GFT303.png" alt="Blue Silver Leatherette Book/Bible Cover" /></div>
+        <div class="card-body">
+          <div class="sku">SKU: GFT303</div>
+          <h3>Blue/Silver Leatherette Book/Bible Cover with Handle &amp; Zipper</h3>
+          <div class="meta">
+            <div><strong>Size:</strong> 7 1/2&quot; x 10 3/4&quot;</div>
+            <div><strong>Color:</strong> Blue/Silver</div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <strong>Paul &amp; Roy's Men's Group</strong><br />
+      These are the wholesaler options I found when I bought mine. There are likely many other e-commerce sources out there as well.
+    </div>
+  </footer>
+</body>
+</html>
