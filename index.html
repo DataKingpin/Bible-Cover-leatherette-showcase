@@ -3,30 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leatherette Book & Bible Cover Collection</title>
+  <title>Paul &amp; Roy's Men's Group | Bible Cover Showcase</title>
   <style>
     :root {
-      --bg: #f7f4ef;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --line: #e5e7eb;
-      --accent: #7c5c3b;
-      --accent-soft: #efe3d4;
-      --shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
-      --radius: 20px;
+      --bg: #050607;
+      --bg-soft: #0b1013;
+      --card: #11181d;
+      --card-2: #0e1418;
+      --text: #f5f7fa;
+      --muted: #a7b4bf;
+      --line: rgba(255,255,255,0.10);
+      --accent: #26b6d4;
+      --accent-strong: #1aa6c3;
+      --accent-soft: rgba(38, 182, 212, 0.14);
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+      --radius: 24px;
       --max: 1240px;
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       font-family: Inter, Arial, Helvetica, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, #fff9f2 0%, var(--bg) 45%),
-        linear-gradient(180deg, #faf7f1 0%, #f3efe8 100%);
+        radial-gradient(circle at top left, rgba(38,182,212,0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(38,182,212,0.12), transparent 24%),
+        linear-gradient(180deg, #050607 0%, #0a0f12 48%, #06090b 100%);
     }
 
     img {
@@ -35,123 +40,317 @@
       height: auto;
     }
 
-    a { color: inherit; }
+    a { color: inherit; text-decoration: none; }
 
     .wrap {
       width: min(calc(100% - 32px), var(--max));
       margin: 0 auto;
     }
 
+    .site-top {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(5, 6, 7, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .site-top .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(38, 182, 212, 0.14);
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .top-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: end;
+    }
+
+    .top-link {
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .top-link.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #001018;
+      font-weight: 800;
+    }
+
     .hero {
-      padding: 56px 0 30px;
+      padding: 46px 0 32px;
     }
 
     .hero-card {
-      background: rgba(255,255,255,0.72);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.7);
-      border-radius: 28px;
-      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      background: linear-gradient(140deg, rgba(17,24,29,0.96) 0%, rgba(8,12,15,0.98) 100%);
+      border: 1px solid rgba(38,182,212,0.16);
+      border-radius: 32px;
+      padding: 34px;
       box-shadow: var(--shadow);
     }
 
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -80px -80px auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(38,182,212,0.28) 0%, rgba(38,182,212,0.04) 42%, transparent 70%);
+      pointer-events: none;
+    }
+
     .eyebrow {
-      display: inline-block;
-      margin-bottom: 14px;
-      padding: 8px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding: 8px 14px;
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent);
       font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      line-height: 1.05;
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
     }
 
-    .hero p {
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.5rem, 5vw, 4.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+    }
+
+    .accent { color: var(--accent); }
+
+    .lead {
       margin: 0;
       max-width: 760px;
       color: var(--muted);
-      font-size: 1.02rem;
-      line-height: 1.7;
+      font-size: 1.06rem;
+      line-height: 1.75;
     }
 
     .summary {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 22px;
+      margin-top: 24px;
     }
 
     .pill {
-      background: #fff;
-      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
       border-radius: 999px;
       padding: 10px 14px;
       font-size: 0.92rem;
-      color: var(--muted);
-      box-shadow: 0 4px 14px rgba(17,24,39,0.04);
+      color: #d7e0e6;
     }
 
-    .section-title {
+    .hero-side {
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+
+    .feature-card,
+    .info-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 18px;
+    }
+
+    .feature-art {
+      min-height: 220px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(circle at 20% 25%, rgba(38,182,212,0.35), transparent 18%),
+        radial-gradient(circle at 75% 30%, rgba(38,182,212,0.22), transparent 22%),
+        linear-gradient(145deg, #081015 0%, #111b20 55%, #091015 100%);
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+
+    .feature-art::before,
+    .feature-art::after {
+      content: "";
+      position: absolute;
+      inset: auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transform: rotate(45deg);
+    }
+
+    .feature-art::before {
+      top: 24px;
+      right: -24px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .feature-art::after {
+      bottom: -52px;
+      left: -18px;
+      background: rgba(38,182,212,0.05);
+    }
+
+    .feature-copy {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 22px;
+    }
+
+    .feature-copy .mini {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .feature-copy .big {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .feature-copy .big .blue {
+      color: var(--accent);
+    }
+
+    .info-card h2 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      color: #eaf8fc;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    .info-list strong { color: var(--text); }
+
+    .section-head {
       display: flex;
       justify-content: space-between;
       align-items: end;
       gap: 16px;
-      margin: 10px 0 20px;
+      margin: 6px 0 22px;
     }
 
-    .section-title h2 {
-      margin: 0;
-      font-size: 1.5rem;
+    .section-head h2 {
+      margin: 0 0 6px;
+      font-size: 1.7rem;
     }
 
-    .section-title p {
+    .section-head p {
       margin: 0;
       color: var(--muted);
+      max-width: 700px;
+      line-height: 1.6;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
       gap: 22px;
-      padding-bottom: 56px;
+      padding-bottom: 54px;
     }
 
     .card {
-      background: var(--card);
-      border: 1px solid rgba(229, 231, 235, 0.9);
-      border-radius: var(--radius);
+      position: relative;
+      background: linear-gradient(180deg, rgba(17,24,29,0.95), rgba(10,14,17,0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
       overflow: hidden;
       box-shadow: var(--shadow);
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(17, 24, 39, 0.12);
+      border-color: rgba(38,182,212,0.3);
+      box-shadow: 0 24px 54px rgba(0,0,0,0.44);
     }
 
     .card-media {
       aspect-ratio: 1 / 1;
-      background: linear-gradient(180deg, #f9fafb 0%, #f3f4f6 100%);
+      background: radial-gradient(circle at top, rgba(38,182,212,0.12), transparent 42%), linear-gradient(180deg, #0f1519 0%, #0a0f12 100%);
       padding: 16px;
       display: grid;
       place-items: center;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .card-media img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      filter: drop-shadow(0 8px 18px rgba(0,0,0,0.08));
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,0.34));
     }
 
     .card-body {
@@ -165,7 +364,7 @@
       background: var(--accent-soft);
       color: var(--accent);
       font-size: 0.8rem;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.03em;
       margin-bottom: 12px;
     }
@@ -173,7 +372,8 @@
     .card h3 {
       margin: 0 0 10px;
       font-size: 1.05rem;
-      line-height: 1.4;
+      line-height: 1.42;
+      color: #f6fbfd;
     }
 
     .meta {
@@ -181,52 +381,112 @@
       gap: 8px;
       color: var(--muted);
       font-size: 0.93rem;
-      line-height: 1.45;
+      line-height: 1.48;
     }
 
     .meta strong {
-      color: var(--text);
+      color: #ffffff;
       font-weight: 600;
     }
 
     .footer {
-      border-top: 1px solid rgba(229, 231, 235, 0.9);
-      padding: 20px 0 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 20px 0 44px;
       color: var(--muted);
       font-size: 0.92rem;
     }
 
+    .footer strong { color: var(--text); }
+
+    @media (max-width: 980px) {
+      .hero-card { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 640px) {
-      .hero { padding-top: 26px; }
-      .hero-card { padding: 24px; border-radius: 22px; }
-      .section-title { align-items: start; flex-direction: column; }
+      .site-top .wrap,
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .top-links { justify-content: start; }
+
+      .hero { padding-top: 24px; }
+
+      .hero-card {
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      h1 { font-size: 2.5rem; }
     }
   </style>
 </head>
 <body>
+  <div class="site-top">
+    <div class="wrap">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div class="brand-text">Paul &amp; Roy's Men's Group</div>
+      </div>
+      <div class="top-links">
+        <a class="top-link" href="#collection">Browse Covers</a>
+        <a class="top-link primary" href="#collection">View All 10</a>
+      </div>
+    </div>
+  </div>
+
   <header class="hero">
     <div class="wrap">
       <div class="hero-card">
-        <div class="eyebrow">10 Product Collection</div>
-        <h1>Leatherette Book &amp; Bible Covers</h1>
-        <p>
-          A quick showcase page for 7 1/2&quot; x 10 3/4&quot; leatherette book and Bible covers with handle and zipper.
-          This version highlights the full uploaded set with clean product cards and ready-to-share visuals.
-        </p>
-        <div class="summary">
-          <div class="pill">Size: 7 1/2&quot; x 10 3/4&quot;</div>
-          <div class="pill">Style: Handle &amp; Zipper</div>
-          <div class="pill">Material: Leatherette</div>
-          <div class="pill">Total Products: 10</div>
+        <div>
+          <div class="eyebrow">Men's Group Favorites</div>
+          <h1>
+            <span>Men's Group</span><br />
+            <span class="accent">Bible Cover</span><br />
+            <span>Showcase</span>
+          </h1>
+          <p class="lead">
+            A hobby showcase page for our men's group, featuring Bible cover options in a bold black, white,
+            and blue-accent style. Built for easy browsing, sharing, and comparing favorites.
+          </p>
+          <div class="summary">
+            <div class="pill">Leaders: Paul &amp; Roy</div>
+            <div class="pill">Men's Group Hobby Page</div>
+            <div class="pill">Black, White &amp; Blue Theme</div>
+            <div class="pill">10 Bible Cover Options</div>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="feature-card">
+            <div class="feature-art">
+              <div class="feature-copy">
+                <div class="mini">Led by Paul &amp; Roy</div>
+                <div class="big">Choose a<br /><span class="blue">favorite</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="info-card">
+            <h2>Design Direction</h2>
+            <div class="info-list">
+              <div><strong>Primary Colors:</strong> Black, white, and blue accent inspired by the men's group color theme.</div>
+              <div><strong>Use Case:</strong> Simple hobby page for browsing Bible cover ideas.</div>
+              <div><strong>Best Fit:</strong> GitHub Pages, Google Sites embed, or direct sharing by link.</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </header>
 
-  <main class="wrap">
-    <div class="section-title">
-      <h2>Available Colors &amp; Finishes</h2>
-      <p>Responsive grid layout for desktop, tablet, and mobile.</p>
+  <main class="wrap" id="collection">
+    <div class="section-head">
+      <div>
+        <h2>Available Bible Cover Styles</h2>
+        <p>All options below are 7 1/2&quot; x 10 3/4&quot; leatherette book/Bible covers with handle and zipper.</p>
+      </div>
+      <p>Dark-theme showcase optimized for desktop, tablet, and mobile.</p>
     </div>
 
     <section class="grid">
@@ -353,7 +613,9 @@
   </main>
 
   <footer class="footer">
-    <div class="wrap">Built from your uploaded product images and SKU list.</div>
+    <div class="wrap">
+      <strong>Paul &amp; Roy's Men's Group</strong> · Hobby showcase page · Leaders: Paul &amp; Roy
+    </div>
   </footer>
 </body>
 </html>
